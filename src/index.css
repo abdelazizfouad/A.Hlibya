@@ -1,0 +1,401 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-card-secondary: #f1f5f9;
+    --bg-input: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --accent-glow: rgba(0, 0, 0, 0.05);
+  }
+
+  html.dark {
+    --bg-main: #05070a;
+    --bg-card: #0d1117;
+    --bg-card-secondary: #080b10;
+    --bg-input: #0b1017;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --text-primary: #f5f7fa;
+    --text-secondary: #b8c0cc;
+    --text-muted: #8b95a5;
+    --accent-glow: rgba(0, 168, 255, 0.08);
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    font-family: 'Tajawal', 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+  }
+
+  /* iOS Safe Area & Mobile Dimensions */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-area-pb {
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+  }
+
+  h1, h2, .font-serif-luxury {
+    font-family: 'Tajawal', 'Cinzel', Georgia, serif;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+    direction: ltr;
+    display: inline-block;
+  }
+}
+
+/* Custom luxury scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5);
+}
+
+/* Modern 3D & Performance Utilities */
+.perspective-container {
+  perspective: 1000px;
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-3px) rotateX(1deg);
+}
+
+.glass-modern {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.25);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.25);
+}
+
+.glow-amber {
+  box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.25);
+}
+
+/* Premium automotive UI layer. These classes are visual-only and sit above
+   the existing feature components without changing their data flow. */
+.premium-shell {
+  background:
+    radial-gradient(circle at 78% -10%, rgba(0, 168, 255, 0.1), transparent 28rem),
+    radial-gradient(circle at 8% 100%, rgba(124, 58, 237, 0.08), transparent 24rem),
+    #05070a;
+}
+
+.premium-header {
+  background: rgba(5, 7, 10, 0.82) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(0, 229, 255, 0.02);
+}
+
+.premium-sidebar {
+  background: linear-gradient(180deg, rgba(13, 17, 23, 0.96), rgba(5, 7, 10, 0.98)) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.premium-sidebar button {
+  border: 1px solid transparent;
+}
+
+.premium-sidebar button:hover {
+  background: rgba(0, 168, 255, 0.08) !important;
+  border-color: rgba(0, 168, 255, 0.16);
+}
+
+.premium-sidebar button[class*="bg-white"] {
+  background: linear-gradient(135deg, #00a8ff, #006bd6) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 24px rgba(0, 168, 255, 0.2);
+}
+
+.premium-sidebar button[class*="bg-white"] svg {
+  color: #fff !important;
+}
+
+.premium-card {
+  background: linear-gradient(145deg, rgba(13, 17, 23, 0.94), rgba(8, 11, 16, 0.88)) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+}
+
+.premium-card:hover {
+  border-color: rgba(0, 168, 255, 0.32) !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24), 0 0 28px rgba(0, 168, 255, 0.08);
+}
+
+.premium-accent {
+  color: #00e5ff !important;
+}
+
+.premium-button {
+  background: linear-gradient(135deg, #00a8ff, #006bd6) !important;
+  box-shadow: 0 10px 24px rgba(0, 168, 255, 0.2);
+}
+
+.premium-button:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 12px 30px rgba(0, 229, 255, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-3d,
+  .three-d-grid,
+  .three-d-orb,
+  .three-d-ring {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsive Table Wrapper without breaking viewport */
+.table-responsive-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* GPU-only animated 3D background — kept below page content and disabled for
+   visitors who request reduced motion. */
+.three-d-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: layout paint;
+  perspective: 900px;
+}
+
+.three-d-grid {
+  position: absolute;
+  width: 150%;
+  height: 76%;
+  left: -25%;
+  bottom: -44%;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.2) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to bottom, transparent, black 40%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 40%, transparent);
+  transform: rotateX(66deg) rotateZ(-7deg);
+  transform-origin: bottom;
+  animation: three-d-grid-drift 22s linear infinite;
+}
+
+.three-d-orb {
+  position: absolute;
+  width: clamp(190px, 25vw, 410px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.22;
+  will-change: transform;
+}
+
+.three-d-orb--emerald {
+  top: 4%;
+  right: 7%;
+  background: radial-gradient(circle at 32% 28%, rgba(167, 243, 208, 0.72), rgba(16, 185, 129, 0.18) 34%, transparent 69%);
+  box-shadow: inset -30px -35px 70px rgba(2, 44, 34, 0.5), 0 0 95px rgba(16, 185, 129, 0.2);
+  animation: three-d-float-one 16s ease-in-out infinite;
+}
+
+.three-d-orb--blue {
+  width: clamp(150px, 19vw, 300px);
+  bottom: 7%;
+  left: 5%;
+  background: radial-gradient(circle at 32% 28%, rgba(186, 230, 253, 0.58), rgba(14, 165, 233, 0.14) 36%, transparent 68%);
+  box-shadow: inset -22px -30px 55px rgba(8, 47, 73, 0.45), 0 0 80px rgba(14, 165, 233, 0.12);
+  animation: three-d-float-two 19s ease-in-out infinite;
+}
+
+.three-d-ring {
+  position: absolute;
+  border: 1px solid rgba(110, 231, 183, 0.28);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.three-d-ring--one {
+  width: min(48vw, 620px);
+  aspect-ratio: 1;
+  right: -11%;
+  top: 8%;
+  box-shadow: inset 0 0 28px rgba(16, 185, 129, 0.08), 0 0 28px rgba(16, 185, 129, 0.08);
+  animation: three-d-orbit 24s linear infinite;
+}
+
+.three-d-ring--two {
+  width: min(35vw, 470px);
+  aspect-ratio: 1;
+  left: -9%;
+  bottom: 10%;
+  border-color: rgba(125, 211, 252, 0.22);
+  animation: three-d-orbit-reverse 28s linear infinite;
+}
+
+.three-d-star {
+  position: absolute;
+  right: 13%;
+  top: 21%;
+  width: 84px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(209, 250, 229, 0.25);
+  border-radius: 50%;
+  opacity: 0.35;
+  transform: rotateX(58deg) rotateZ(10deg);
+  animation: three-d-star-turn 18s ease-in-out infinite;
+}
+
+.three-d-star i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 46%;
+  transform-origin: 50% 100%;
+  background: linear-gradient(to top, rgba(209, 250, 229, 0.08), rgba(209, 250, 229, 0.95));
+}
+
+.three-d-star i:nth-child(1) { transform: translate(-50%, -100%) rotate(0deg); }
+.three-d-star i:nth-child(2) { transform: translate(-50%, -100%) rotate(120deg); }
+.three-d-star i:nth-child(3) { transform: translate(-50%, -100%) rotate(240deg); }
+
+.three-d-background--login { opacity: 0.8; }
+.three-d-background--login .three-d-star { right: 16%; top: 16%; }
+
+@keyframes three-d-grid-drift {
+  from { transform: rotateX(66deg) rotateZ(-7deg) translateY(0); }
+  to { transform: rotateX(66deg) rotateZ(-7deg) translateY(54px); }
+}
+
+@keyframes three-d-float-one {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-32px, 26px, 55px) scale(1.08); }
+}
+
+@keyframes three-d-float-two {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(38px, -32px, 44px) scale(0.94); }
+}
+
+@keyframes three-d-orbit {
+  from { transform: rotateX(64deg) rotateZ(0deg); }
+  to { transform: rotateX(64deg) rotateZ(360deg); }
+}
+
+@keyframes three-d-orbit-reverse {
+  from { transform: rotateX(64deg) rotateZ(360deg); }
+  to { transform: rotateX(64deg) rotateZ(0deg); }
+}
+
+@keyframes three-d-star-turn {
+  0%, 100% { transform: rotateX(58deg) rotateZ(10deg) scale(1); }
+  50% { transform: rotateX(42deg) rotateZ(190deg) scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 640px) {
+  .three-d-background * { animation: none !important; }
+  .three-d-grid { opacity: 0.12; }
+  .three-d-orb { opacity: 0.12; }
+}
+
+/* Safe touch target size for mobile */
+@media (max-width: 640px) {
+  button, a, input, select, textarea {
+    min-height: 40px;
+  }
+}
+
+/* Html5-QRCode Mobile Camera Video Rendering Fix */
+#ah-camera-viewfinder {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+  background-color: #000000 !important;
+  overflow: hidden !important;
+}
+
+#ah-camera-viewfinder video {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 380px !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+#ah-camera-viewfinder img {
+  display: none !important;
+}
+
+#ah-camera-viewfinder__scan_region {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 220px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#ah-camera-viewfinder__dashboard_section {
+  display: none !important;
+}
