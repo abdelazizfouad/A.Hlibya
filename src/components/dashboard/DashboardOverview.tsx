@@ -196,7 +196,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
               }`}
             >
               <Building2 className="w-3 h-3" />
-              {t('الفرع التشغيلي: فرع الحرفيين', 'Operational Branch: El-Harefeyin')}
+              {t('مركز تشغيل المستودع · فرع الحرفيين', 'Warehouse Operations · El-Harefeyin')}
             </span>
             <span
               className={`text-[10px] sm:text-[11px] font-medium flex items-center gap-1 ${
@@ -204,7 +204,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
               }`}
             >
               <CheckCircle2 className="w-3 h-3 text-emerald-500" />
-              {t('مزامنة مباشرة (EGP)', 'Live Database Sync (EGP)')}
+              {t('قاعدة البيانات متصلة', 'Database Connected')}
             </span>
           </div>
 
@@ -213,7 +213,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
               isDark ? 'text-white' : 'text-slate-900'
             }`}
           >
-            {t('لوحة التحكم والمؤشرات — AH.Libya Store', 'Dashboard & WMS Overview — AH.Libya Store')}
+            {t('مركز عمليات AH.Libya للمخزون', 'AH.Libya Inventory Operations Center')}
           </h1>
 
           <p
@@ -221,7 +221,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
               isDark ? 'text-zinc-400' : 'text-slate-600'
             }`}
           >
-            {t('نظام إدارة قطع غيار مرسيدس-بنز، تنظيم مصفوفات الرفوف، وتتبع العمليات المالية بالجنيه المصري (EGP).', 'Mercedes-Benz spare parts WMS, bin location tracking, and real-time inventory valuations.')}
+            {t('وصول سريع للقطع، الرفوف، الباركود، وحركات المخزن من شاشة تشغيل واحدة.', 'A fast operating surface for parts, shelves, barcodes, and stock movements.')}
           </p>
         </div>
 
@@ -251,7 +251,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
             }`}
           >
             <QrCode className="w-3.5 h-3.5" />
-            <span>{t('مسح باركود', 'Scanner')}</span>
+              <span>{t('قراءة باركود', 'Scan Barcode')}</span>
           </button>
 
           {canPerformStockMovements && (
@@ -264,7 +264,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
               }`}
             >
               <ArrowLeftRight className="w-3.5 h-3.5" />
-              <span>{t('تسجيل حركة', 'Stock Move')}</span>
+              <span>{t('حركة مخزنية', 'Stock Movement')}</span>
             </button>
           )}
 
@@ -278,7 +278,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
               }`}
             >
               <PlusCircle className="w-4 h-4" />
-              <span>{t('إضافة قطعة جديدة', 'Add Part')}</span>
+              <span>{t('تسجيل صنف', 'Register Part')}</span>
             </button>
           )}
         </div>
@@ -300,8 +300,8 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
                 <ShoppingCart className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-xs font-bold">{t('صرف مبيعات', 'Sales Invoices')}</div>
-                <div className="text-[10px] text-zinc-400">{t('فواتير وصرف عملاء', 'Issue sales')}</div>
+                <div className="text-xs font-bold">{t('صرف القطع', 'Parts Issue')}</div>
+                <div className="text-[10px] text-zinc-400">{t('تسجيل خروج المخزون', 'Outbound control')}</div>
               </div>
             </div>
             <ChevronLeft className={`w-4 h-4 text-zinc-500 ${language === 'en' ? 'rotate-180' : ''}`} />
@@ -322,8 +322,8 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
                 <Truck className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-xs font-bold">{t('أوامر المشتريات', 'Purchase Orders')}</div>
-                <div className="text-[10px] text-zinc-400">{t('استلام وتوريد', 'Inbound & receiving')}</div>
+                <div className="text-xs font-bold">{t('الاستلام والتوريد', 'Receiving')}</div>
+                <div className="text-[10px] text-zinc-400">{t('إدخال المخزون', 'Inbound control')}</div>
               </div>
             </div>
             <ChevronLeft className={`w-4 h-4 text-zinc-500 ${language === 'en' ? 'rotate-180' : ''}`} />
@@ -344,8 +344,8 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
                 <AlertOctagon className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-xs font-bold">{t('سجل النواقص', 'Shortage Requests')}</div>
-                <div className="text-[10px] text-zinc-400">{t('إعادة الطلب والاستيراد', 'Reorder tracking')}</div>
+                <div className="text-xs font-bold">{t('مراقبة النواقص', 'Shortage Monitor')}</div>
+                <div className="text-[10px] text-zinc-400">{t('تنبيهات إعادة الطلب', 'Reorder tracking')}</div>
               </div>
             </div>
             <ChevronLeft className={`w-4 h-4 text-zinc-500 ${language === 'en' ? 'rotate-180' : ''}`} />
@@ -366,8 +366,8 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
                 <BarChart3 className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-xs font-bold">{t('التقارير المالية', 'Financial Reports')}</div>
-                <div className="text-[10px] text-zinc-400">{t('تحليلات وتقييم المخزون', 'Analytics & Valuation')}</div>
+                <div className="text-xs font-bold">{t('تحليلات التشغيل', 'Operations Analytics')}</div>
+                <div className="text-[10px] text-zinc-400">{t('حركة وقيمة المخزون', 'Stock activity & valuation')}</div>
               </div>
             </div>
             <ChevronLeft className={`w-4 h-4 text-zinc-500 ${language === 'en' ? 'rotate-180' : ''}`} />

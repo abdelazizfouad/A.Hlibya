@@ -59,29 +59,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const { isDark } = useTheme();
   const { language, t } = useLanguage();
 
-  // Grouped Navigation for Mercedes-Benz Spare Parts Workshop Layout
+  // Warehouse-first navigation; route ids and permissions remain unchanged.
   const primaryOperations = [
     {
       id: 'dashboard' as NavView,
-      label: t('لوحة التحكم والمؤشرات', 'Dashboard Overview'),
+      label: t('مركز العمليات', 'Operations Center'),
       icon: LayoutDashboard,
       badge: null
     },
     {
       id: 'sales' as NavView,
-      label: t('المبيعات وفواتير الصرف', 'Sales & Invoicing'),
+      label: t('صرف القطع والفواتير', 'Parts Issue & Invoices'),
       icon: ShoppingCart,
       badge: null
     },
     {
       id: 'purchases' as NavView,
-      label: t('المشتريات وأوامر التوريد', 'Purchase Orders'),
+      label: t('التوريد والاستلام', 'Receiving & Supply'),
       icon: Truck,
       badge: null
     },
     {
       id: 'movements' as NavView,
-      label: t('سجل الحركات والأذونات', 'Stock Movements'),
+      label: t('حركة المخزن', 'Stock Activity'),
       icon: ArrowLeftRight,
       badge: null
     }
@@ -90,26 +90,26 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const inventoryAndEpc = [
     {
       id: 'parts' as NavView,
-      label: t('كتالوج وقطع مرسيدس', 'Parts Master & EPC'),
+      label: t('كتالوج قطع مرسيدس', 'Mercedes Parts Catalog'),
       icon: Layers,
       badge: lowStockCount > 0 ? `${lowStockCount}` : null,
       badgeType: 'warning'
     },
     {
       id: 'vin_decoder' as NavView,
-      label: t('فك شاسيهات VIN ومطابقة', 'VIN Decoder & Matcher'),
+      label: t('مطابقة VIN', 'VIN Matching'),
       icon: Car,
       badge: null
     },
     {
       id: 'inventory' as NavView,
-      label: t('المخازن ومواقع الأرفف', 'Bin Locations & Stock'),
+      label: t('المخزون والأرفف', 'Inventory & Shelves'),
       icon: Boxes,
       badge: null
     },
     {
       id: 'shortages' as NavView,
-      label: t('سجل النواقص والطلبيات', 'Shortages & Reorders'),
+      label: t('النواقص وإعادة الطلب', 'Shortages & Reorder'),
       icon: AlertOctagon,
       badge: shortagesCount > 0 ? `${shortagesCount}` : null,
       badgeType: 'danger'
@@ -119,7 +119,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const partnersAndReports = [
     {
       id: 'partners' as NavView,
-      label: t('الموردين والعملاء والورش', 'Suppliers & Customers'),
+      label: t('الموردون والعملاء', 'Suppliers & Customers'),
       icon: Users,
       badge: null
     }
@@ -128,7 +128,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   if (canViewFinancials) {
     partnersAndReports.push({
       id: 'reports' as NavView,
-      label: t('التقارير المالية والتحليلات', 'Reports & Analytics'),
+      label: t('تقارير التشغيل', 'Operations Reports'),
       icon: BarChart3,
       badge: null
     });
@@ -137,7 +137,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const systemAndWarehouse = [
     {
       id: 'warehouses' as NavView,
-      label: t('المستودع الرئيسي (الحرفيين)', 'Warehouse & Zones'),
+      label: t('المستودع والمناطق', 'Warehouse & Zones'),
       icon: Warehouse,
       badge: null
     }
@@ -146,7 +146,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   if (canAccessAuditLogs) {
     systemAndWarehouse.push({
       id: 'audit' as NavView,
-      label: t('سجل تدقيق العمليات', 'Security & Audit Logs'),
+      label: t('التدقيق والصلاحيات', 'Audit & Permissions'),
       icon: ShieldCheck,
       badge: null
     });
@@ -154,7 +154,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   systemAndWarehouse.push({
     id: 'system' as NavView,
-    label: t('إعدادات النظام والبيانات', 'System & Seeder'),
+    label: t('إعدادات النظام', 'System Settings'),
     icon: RotateCcw,
     badge: null
   });
@@ -247,10 +247,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Group 1: Operations */}
-        {renderNavGroup(t('العمليات والتشغيل', 'Daily Operations'), primaryOperations)}
+        {renderNavGroup(t('التشغيل اليومي', 'Daily Operations'), primaryOperations)}
 
         {/* Group 2: Mercedes EPC & Inventory */}
-        {renderNavGroup(t('المخزون وكتالوج مرسيدس', 'EPC & Inventory'), inventoryAndEpc)}
+        {renderNavGroup(t('المخزون والكتالوج', 'Inventory & Catalog'), inventoryAndEpc)}
 
         {/* Group 3: Partners & Analytics */}
         {renderNavGroup(t('الشركاء والتقارير', 'Partners & Reports'), partnersAndReports)}
